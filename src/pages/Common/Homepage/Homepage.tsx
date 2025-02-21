@@ -6,6 +6,7 @@ import { fetchWeatherInfo } from "../../../utils/querykey";
 import { useEffect, useState } from "react";
 import { getCurrentandForeCastWeatherData } from "../../../services/weather.service";
 import { useQuery } from "@tanstack/react-query";
+import {  useNavigate } from "react-router-dom";
 
 const Homepage = () => {
   const [filterObject, serFilerObject] = useState<IWeatherFilter>({
@@ -14,6 +15,7 @@ const Homepage = () => {
     exclude: "minutely,hourly",
   });
   const [weatherInfo, setWeatherInfo] = useState<ICurrentandForeCastWeatherData>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     serFilerObject({
@@ -97,13 +99,14 @@ const Homepage = () => {
           </div>
         </div>
 
-        <div className="button-container mt-10 mb-10 w-4/5 rounded-4xl bg-amber-500 text-center">
+        <div className="button-container mt-10 mb-10 w-4/5 rounded-4xl bg-amber-500 text-center "  onClick={() => navigate("/detail")}>
           <button className="button p-4 text-xl font-medium text-white">
             Today Forecast
           </button>
         </div>
       </div>
     </div>
+    
   );
 };
 
