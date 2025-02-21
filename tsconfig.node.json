@@ -12,5 +12,5 @@
     "noUnusedParameters": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["vite.config.ts"] // Changed to only include Vite config for Node environment
+  "include": ["vite.config.ts", "src/vite-env.d.ts"] // Include the custom type declaration file
 }
