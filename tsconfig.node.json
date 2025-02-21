@@ -5,11 +5,12 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "module": "CommonJS",
     "moduleResolution": "node",
-    "lib": ["ES2020"], // Override lib to exclude DOM
+    "lib": ["ES2020"],
     "allowImportingTsExtensions": true,
+    "noEmit": true, // Added this to fix the first error
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src"]
+  "include": ["vite.config.ts"] // Changed to only include Vite config for Node environment
 }
