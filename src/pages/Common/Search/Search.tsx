@@ -2,8 +2,13 @@ import searchIcon from "../../../assets/Search1.png";
 import minTempIcon from "../../../assets/Down_white.png";
 import maxTempIcon from "../../../assets/Up_white.png";
 import "./Search.css";
+import { useNavigate } from "react-router-dom";
 
 const Search = () => {
+
+    const navigate = useNavigate();
+
+
   return (
     <div className="container-detail flex h-full w-full items-center justify-center text-white">
       <div className="detail flex h-150 w-100 flex-col items-center rounded-2xl bg-white shadow-2xl">
@@ -15,7 +20,7 @@ const Search = () => {
           />
         </div>
 
-        <div className="weather-tag-container">
+        <div className="weather-tag-container" onClick={() => navigate("/")}>
           <div className="tag-weather mt-4 flex h-30 w-90 flex-col justify-between rounded-xl p-3">
             <div className="box-1 flex justify-between">
               <div className="city-name-container flex flex-col justify-between">
