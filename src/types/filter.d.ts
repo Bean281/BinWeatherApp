@@ -8,4 +8,10 @@ declare global {
     units?: string;
     lang?: string;
   }
+
+  interface ICitySearch {
+    q: string;
+    units?: string;
+    lang?: string;
+  }
 }

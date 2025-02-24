@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 import Homepage from "../../pages/Common/Homepage/Homepage";
-import Detail from "../../pages/Common/Detail/Detail";
+import Search from "../../pages/Common/Search/Search";
 
 const CommonRouteObject: RouteObject[] = [
   {
@@ -9,7 +9,7 @@ const CommonRouteObject: RouteObject[] = [
   },
   {
     path: "/detail",
-    element: <Detail/>  }
+    element: <Search/>  }
 ]
 
 export default CommonRouteObject;

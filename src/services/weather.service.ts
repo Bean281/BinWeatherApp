@@ -7,3 +7,9 @@ export const getCurrentandForeCastWeatherData = (queryObj: IWeatherFilter ) => {
 
   return axios.get<unknown, ICurrentandForeCastWeatherData>(`/weather?${queryUrl}`);
 }
+
+export const getWeatherDataByCityName = (queryObj: ICitySearch) => {
+  const queryUrl = queryString.stringify(queryObj);
+
+  return axios.get<unknown, ICurrentandForeCastWeatherData>(`/weather?${queryUrl}`);
+}
