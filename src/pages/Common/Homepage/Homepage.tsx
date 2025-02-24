@@ -6,7 +6,7 @@ import { fetchWeatherInfo } from "../../../utils/querykey";
 import { useEffect, useState } from "react";
 import { getCurrentandForeCastWeatherData } from "../../../services/weather.service";
 import { useQuery } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Homepage = () => {
   const [filterObject, serFilerObject] = useState<IWeatherFilter>({
@@ -17,11 +17,16 @@ const Homepage = () => {
   const [weatherInfo, setWeatherInfo] =
     useState<ICurrentandForeCastWeatherData>();
   const navigate = useNavigate();
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const latSearch = queryParams.get("lat");
+  const lonSearch = queryParams.get("lon");
+
 
   useEffect(() => {
     serFilerObject({
-      lat: 10.77653,
-      lon: 106.700981,
+      lat: latSearch ? parseFloat(latSearch) : 10.77653,
+      lon: lonSearch ? parseFloat(lonSearch) : 106.700981,
       exclude: "minutely,hourly",
       units: "metric",
     });
@@ -34,7 +39,6 @@ const Homepage = () => {
 
   useEffect(() => {
     if (response) {
-      console.log("YEAHHHHH!!!!", response);
       setWeatherInfo(response);
     }
   }, [response]);
@@ -117,7 +121,7 @@ const Homepage = () => {
 
         <div
           className="button-container mt-10 mb-10 w-4/5 cursor-pointer rounded-4xl text-center"
-          onClick={() => navigate("/detail")}
+          onClick={() => navigate(`/detail?q=${weatherInfo?.name}`)}
         >
           <button className="button cursor-pointer p-4 text-xl font-medium text-white">
             Choose Location
