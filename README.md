@@ -1,4 +1,4 @@
-# 🎫 Conference Ticket Generator
+# 🌤️ BinWeatherApp
 - Weblink: https://bin-weather-app-zeta.vercel.app
 - A simple and modern weather forecast application and powered by a public weather API. This app provides real-time weather information based on user input.
 
